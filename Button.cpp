@@ -7,27 +7,27 @@
 Button::Button(std::chrono::microseconds debounceDelay, bool polarity) : polarity(polarity),
                                                                          debounceDelay(debounceDelay) {}
 
-bool Button::debounce(bool isPinHigh, std::chrono::microseconds runTime) {
+bool Button::debounce(bool isPinHigh, std::chrono::microseconds runtime) {
     if (!polarity) {
         isPinHigh = !isPinHigh;
     }
 
     if (isPinHigh != lastButtonState) {
-        lastDebounceTime = runTime;
+        lastDebounceTime = runtime;
         lastButtonState = isPinHigh;
     }
 
-    if ((runTime - lastDebounceTime) > debounceDelay) {
+    if ((runtime - lastDebounceTime) > debounceDelay) {
         return true;
     } else {
         return false;
     }
 }
 
-bool Button::checkIfPressed(bool isPinHigh, std::chrono::microseconds runTime) {
+bool Button::checkIfPressed(bool isPinHigh, std::chrono::microseconds runtime) {
     bool output = false;
 
-    if (debounce(isPinHigh, runTime)) {
+    if (debounce(isPinHigh, runtime)) {
         if (isPinHigh != buttonState) {
             buttonState = isPinHigh;
             if (buttonState) {
@@ -39,10 +39,10 @@ bool Button::checkIfPressed(bool isPinHigh, std::chrono::microseconds runTime) {
     return output;
 }
 
-std::chrono::microseconds Button::timePressed(bool isPinHigh, std::chrono::microseconds runTime) {
-    if (debounce(isPinHigh, runTime)) {
+std::chrono::microseconds Button::timePressed(bool isPinHigh, std::chrono::microseconds runtime) {
+    if (debounce(isPinHigh, runtime)) {
          if (isPinHigh) {
-            return runTime - lastDebounceTime;
+            return runtime - lastDebounceTime;
         }
     }
 

@@ -28,18 +28,18 @@ public:
     /**
      * Check whether the button has been pressed.
      * @param isPinHigh - The input of the pin the button is connected to as a boolean value
-     * @param runTime - The time the program has been running for as a std::chrono::duration
+     * @param runtime - The time the program has been running for as a std::chrono::duration
      * @return - Whether the button has been pressed as a boolean
      */
-    bool checkIfPressed(bool isPinHigh, std::chrono::microseconds runTime);
+    bool checkIfPressed(bool isPinHigh, std::chrono::microseconds runtime);
 
     /**
      * Check how long the button has been pressed for.
      * @param isPinHigh - The input of the pin the button is connected to as a boolean value
-     * @param runTime - The time the program has been running for as a std::chrono::duration
+     * @param runtime - The time the program has been running for as a std::chrono::duration
      * @return - The time the button has been pressed for as a std::chrono::duration (0 if button is not pressed)
      */
-    std::chrono::microseconds timePressed(bool isPinHigh, std::chrono::microseconds runTime);
+    std::chrono::microseconds timePressed(bool isPinHigh, std::chrono::microseconds runtime);
 
 private:
     std::chrono::microseconds lastDebounceTime = 0s;
@@ -61,10 +61,10 @@ private:
      * https://github.com/drlim2u/button
      *
      * @param isPinHigh - The input of the pin the button is connected to as a boolean value
-     * @param runTime - The time the program has been running for as a std::chrono::duration
+     * @param runtime - The time the program has been running for as a std::chrono::duration
      * @return - If the pin reading has been there for longer than the debounce delay as a boolean
      */
-    bool debounce(bool isPinHigh, std::chrono::microseconds runTime);
+    bool debounce(bool isPinHigh, std::chrono::microseconds runtime);
 };
 
 
