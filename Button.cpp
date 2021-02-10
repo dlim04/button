@@ -24,7 +24,7 @@ bool Button::debounce(bool isPinHigh, std::chrono::microseconds runtime) {
     }
 }
 
-bool Button::checkIfPressed(bool isPinHigh, std::chrono::microseconds runtime) {
+bool Button::isPressed(bool isPinHigh, std::chrono::microseconds runtime) {
     bool output = false;
 
     if (debounce(isPinHigh, runtime)) {

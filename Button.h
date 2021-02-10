@@ -31,7 +31,7 @@ public:
      * @param runtime - The time the program has been running for as a std::chrono::duration
      * @return - Whether the button has been pressed as a boolean
      */
-    bool checkIfPressed(bool isPinHigh, std::chrono::microseconds runtime);
+    bool isPressed(bool isPinHigh, std::chrono::microseconds runtime);
 
     /**
      * Check how long the button has been pressed for.
