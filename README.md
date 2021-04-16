@@ -9,7 +9,7 @@ The following example was written for mbed-os v6.7:
 
 static BufferedSerial serial_port(USBTX, USBRX, 9600);
 
-int main(){
+int main() {
     DigitalIn buttonPin(p7);
     DigitalOut led(LED1);
     
@@ -19,7 +19,7 @@ int main(){
     runtime.start();
     
     Button button;
-    while(true){
+    while (true) {
         if (button.isPressed(buttonPin.read(), runtime.elapsed_time())) {
             isOn = !isOn;
             led.write(isOn);
